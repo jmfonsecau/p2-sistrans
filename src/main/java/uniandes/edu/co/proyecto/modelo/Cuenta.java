@@ -16,17 +16,17 @@ public class Cuenta {
     private String tipo;
     @ManyToOne
     private Usuario cliente;
-    private String numero;
     private double saldo;
     private String estado;
+    private String fechaUltimaTransaccion;
     
-    public Cuenta(int id, String tipo, Usuario cliente, String numero, double saldo, String estado) {
+    public Cuenta(int id, String tipo, Usuario cliente, double saldo, String estado, String fechaUltimaTransaccion) {
         this.id = id;
         this.tipo = tipo;
         this.cliente = cliente;
-        this.numero = numero;
         this.saldo = saldo;
         this.estado = estado;
+        this.fechaUltimaTransaccion = fechaUltimaTransaccion;
     }
 
     public Cuenta(){
@@ -57,14 +57,6 @@ public class Cuenta {
         this.cliente = cliente;
     }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
     public double getSaldo() {
         return saldo;
     }
@@ -81,6 +73,11 @@ public class Cuenta {
         this.estado = estado;
     }
 
-    
-    
+    public String getFechaUltimaTransaccion() {
+        return fechaUltimaTransaccion;
+    }
+
+    public void setFechaUltimaTransaccion(String fechaUltimaTransaccion) {
+        this.fechaUltimaTransaccion = fechaUltimaTransaccion;
+    }
 }

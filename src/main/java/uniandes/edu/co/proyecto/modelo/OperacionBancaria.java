@@ -24,8 +24,10 @@ public class OperacionBancaria {
     @ManyToOne
     private PuntosAtencion puntoAtencion;
     private Date fecha;
+    private String producto;
+    
     public OperacionBancaria(int id, String tipo, Usuario cliente, Cuenta cuenta, double valor,
-            PuntosAtencion puntoAtencion, Date fecha) {
+            PuntosAtencion puntoAtencion, Date fecha, String producto) {
         this.id = id;
         this.tipo = tipo;
         this.cliente = cliente;
@@ -33,11 +35,12 @@ public class OperacionBancaria {
         this.valor = valor;
         this.puntoAtencion = puntoAtencion;
         this.fecha = fecha;
+        this.producto = producto;
     }
 
-   public OperacionBancaria(){
-    ;
-   }
+    public OperacionBancaria(){
+        ;
+    }
 
     public int getId() {
         return id;
@@ -94,5 +97,12 @@ public class OperacionBancaria {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-   
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
 }

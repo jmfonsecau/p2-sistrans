@@ -15,7 +15,7 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
     Collection<Prestamo> darPrestamos();
 
     @Query(value = "SELECT * FROM PRESTAMO WHERE id = :id", nativeQuery = true)
-    Prestamo darPrestamo(@Param("id") String id);
+    Prestamo darPrestamo(@Param("id") int id);
 
     @Modifying
     @Transactional
@@ -25,10 +25,10 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
     @Modifying
     @Transactional
     @Query(value = "UPDATE PRESTAMO SET monto = :monto, interes = :interes, numero_cuotas = :numeroCuotas, dia_pago_cuota = :diaPagoCuota, valor_cuota = :valorCuota, estado = :estado WHERE id = :id", nativeQuery = true)
-    void actualizarPrestamo(@Param("id") String id, @Param("monto") double monto, @Param("interes") double interes, @Param("numeroCuotas") int numeroCuotas, @Param("diaPagoCuota") int diaPagoCuota, @Param("valorCuota") double valorCuota, @Param("estado") String estado);
+    void actualizarPrestamo(@Param("id") int id, @Param("monto") double monto, @Param("interes") double interes, @Param("numeroCuotas") int numeroCuotas, @Param("diaPagoCuota") int diaPagoCuota, @Param("valorCuota") double valorCuota, @Param("estado") String estado);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM PRESTAMO WHERE id = :id", nativeQuery = true)
-    void eliminarPrestamo(@Param("id") String id);
+    void eliminarPrestamo(@Param("id") int id);
 }
