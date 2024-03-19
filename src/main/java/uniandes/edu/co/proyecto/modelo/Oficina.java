@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,19 +12,30 @@ import jakarta.persistence.Table;
 public class Oficina {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String nombre;
     private String direccion;
-    private Integer num_puntos_atencion;
-    private String ciudad;
+    private int numeroPuntosAtencion;
+    @ManyToOne
+    private Usuario gerente;
 
-    public Oficina(String nombre, String direccion, Integer num_puntos_atencion, String ciudad) {
+    public Oficina(int id, String nombre, String direccion, int numeroPuntosAtencion, Usuario gerente) {
+        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.num_puntos_atencion = num_puntos_atencion;
-        this.ciudad = ciudad;
+        this.numeroPuntosAtencion = numeroPuntosAtencion;
+        this.gerente = gerente;
     }
-    public Oficina() {
+
+    public Oficina(){
         ;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     public String getNombre() {
         return nombre;
@@ -37,19 +49,17 @@ public class Oficina {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    public Integer getNum_puntos_atencion() {
-        return num_puntos_atencion;
+    public int getNumeroPuntosAtencion() {
+        return numeroPuntosAtencion;
     }
-    public void setNum_puntos_atencion(Integer num_puntos_atencion) {
-        this.num_puntos_atencion = num_puntos_atencion;
+    public void setNumeroPuntosAtencion(int numeroPuntosAtencion) {
+        this.numeroPuntosAtencion = numeroPuntosAtencion;
     }
-    public String getCiudad() {
-        return ciudad;
+    public Usuario getGerente() {
+        return gerente;
     }
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setGerente(Usuario gerente) {
+        this.gerente = gerente;
     }
-    
 
-    
 }

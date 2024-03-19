@@ -1,4 +1,5 @@
 package uniandes.edu.co.proyecto.modelo;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -6,51 +7,50 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "USUARIOS")
+@Table(name = "USUARIO")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String numero_Documento;
-    private String tipo_Documento;
+    private int id;
+    private String tipoDocumento;
     private String nombre;
-    private String direccion_Electronica;
-    private String clave;
+    private String direccion;
+    private String email;
+    private String telefono;
     private String ciudad;
-    private String direccion_Fisica;
-    private String nacionalidad;
     private String departamento;
-    private String codigo_Postal;
-    private String login;
-    private String rol;
-
-    public Usuario(String numero_Documento, String tipo_Documento, String nombre, String direccion_Electronica, String clave, String ciudad, String direccion_Fisica, String nacionalidad, String departamento, String codigo_Postal, String login, String rol) {
-        this.numero_Documento = numero_Documento;
-        this.tipo_Documento = tipo_Documento;
+    private String codigoPostal;
+    private String tipoUsuario;
+   
+    public Usuario(int id, String tipoDocumento, String nombre, String direccion, String email, String telefono,
+            String ciudad, String departamento, String codigoPostal, String tipoUsuario) {
+        this.id = id;
+        this.tipoDocumento = tipoDocumento;
         this.nombre = nombre;
-        this.direccion_Electronica = direccion_Electronica;
-        this.clave = clave;
+        this.direccion = direccion;
+        this.email = email;
+        this.telefono = telefono;
         this.ciudad = ciudad;
-        this.direccion_Fisica = direccion_Fisica;
-        this.nacionalidad = nacionalidad;
         this.departamento = departamento;
-        this.codigo_Postal = codigo_Postal;
-        this.login = login;
-        this.rol = rol;
+        this.codigoPostal = codigoPostal;
+        this.tipoUsuario = tipoUsuario;
     }
-    public Usuario() {
+
+    public Usuario(){
         ;
     }
-    public String getNumero_Documento() {
-        return numero_Documento;
+    
+    public int getId() {
+        return id;
     }
-    public void setNumero_Documento(String numero_Documento) {
-        this.numero_Documento = numero_Documento;
+    public void setId(int id) {
+        this.id = id;
     }
-    public String getTipo_Documento() {
-        return tipo_Documento;
+    public String gettipoDocuemtno() {
+        return tipoDocumento;
     }
-    public void setTipo_Documento(String tipo_Documento) {
-        this.tipo_Documento = tipo_Documento;
+    public void settipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
     public String getNombre() {
         return nombre;
@@ -58,17 +58,23 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getDireccion_Electronica() {
-        return direccion_Electronica;
+    public String getDireccion() {
+        return direccion;
     }
-    public void setDireccion_Electronica(String direccion_Electronica) {
-        this.direccion_Electronica = direccion_Electronica;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-    public String getClave() {
-        return clave;
+    public String getEmail() {
+        return email;
     }
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getTelefono() {
+        return telefono;
+    }
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
     public String getCiudad() {
         return ciudad;
@@ -76,41 +82,25 @@ public class Usuario {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    public String getDireccion_Fisica() {
-        return direccion_Fisica;
-    }
-    public void setDireccion_Fisica(String direccion_Fisica) {
-        this.direccion_Fisica = direccion_Fisica;
-    }
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
     public String getDepartamento() {
         return departamento;
     }
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-    public String getCodigo_Postal() {
-        return codigo_Postal;
+    public String getCodigoPostal() {
+        return codigoPostal;
     }
-    public void setCodigo_Postal(String codigo_Postal) {
-        this.codigo_Postal = codigo_Postal;
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
-    public String getLogin() {
-        return login;
+    public String getTipoUsuario() {
+        return tipoUsuario;
     }
-    public void setLogin(String login) {
-        this.login = login;
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
-    public String getRol() {
-        return rol;
-    }
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-    
+
+
 }
+
